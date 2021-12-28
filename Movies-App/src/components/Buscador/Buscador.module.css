@@ -1,0 +1,52 @@
+.cnt {
+    padding-top: 10px;
+}
+.form-container {
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.form-container button {
+    margin-left: 20px;
+}
+.label {
+    padding-right: 10px;
+}
+.contentSearch{
+    height: 50px;
+    margin: auto;
+    border-bottom: 1px solid #999;
+    box-shadow:  5px 5px 5px #999;
+}
+.search{
+    width: 450px;
+    margin: auto;
+    padding-top: 10px;
+}
+.label{
+    font-size: 20px;
+}
+.contentCard{
+    display: inline-block;
+    font-size: 20px;
+    width: 300px;
+    height: 140px;
+    margin: 10px;
+    padding: 0;
+    border-radius: 15px;
+    border: 1px solid #000;
+    box-shadow:  5px 5px 5px #999;
+}
+.contentBtn{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 5px;
+}
+.icon:hover{
+    cursor: pointer;
+}
+
+.contentTitle{
+    text-align: center;
+}

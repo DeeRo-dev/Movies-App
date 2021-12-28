@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getMovies } from "../../actions";
-import './Buscador.css';
+import style from './Buscador.module.css';
+import StarsIcon from '@material-ui/icons/Stars';
 
 
 
 
 export class Buscador extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -20,6 +22,7 @@ export class Buscador extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.getMovies(this.state.title);
+    console.log(this.state)
     this.setState({title:''})
   }
 
@@ -27,10 +30,11 @@ export class Buscador extends Component {
     const { title } = this.state;
     return (
       <div>
-        <h2>Buscador</h2>
+    
         <form className="form-container" onSubmit={(e) => this.handleSubmit(e)}>
-          <div>
-            <label className="label" htmlFor="title">Película: </label>
+          <div className={style.contentSearch}>
+            <div className={style.search}>
+                <label className={style.label} htmlFor="title">Buscar una película: </label>
             <input
               type="text"
               id="title"
@@ -38,20 +42,33 @@ export class Buscador extends Component {
               value={title}
               onChange={(e) => this.handleChange(e)}
             />
+             <button type="submit">Search</button>
+            </div>
+          
           </div>
-          <button type="submit">BUSCAR</button>
+         
         </form>
-        <ul>
+       
          {
            this.props.movies && this.props.movies.map(movie => 
-            <li>
-              {movie.Title}
-              
-              </li>
+           
+            <div className={style.contentCard}>
+              <div className={style.contentBtn}> <StarsIcon className={style.icon}/></div>
+              <div className={style.contentTitle}>
+                <Link to='/movie/' >
+                 <h4>
+                   {movie.Title}
+                </h4>
+                </Link>
+                
+              </div>
+               
+           
+            </div>
           
             )
          }
-        </ul>
+        
       </div>
     );
   }
