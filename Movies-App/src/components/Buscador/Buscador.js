@@ -22,14 +22,14 @@ export class Buscador extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.getMovies(this.state.title);
-    console.log(this.state)
+    console.log(this.props)
     this.setState({title:''})
   }
 
   render() {
     const { title } = this.state;
     return (
-      <div>
+      <div className={style.content}>
     
         <form className="form-container" onSubmit={(e) => this.handleSubmit(e)}>
           <div className={style.contentSearch}>
@@ -48,15 +48,26 @@ export class Buscador extends Component {
           </div>
          
         </form>
-       
+       <div className={style.contentCards}>
          {
            this.props.movies && this.props.movies.map(movie => 
            
             <div className={style.contentCard}>
-              <div className={style.contentBtn}> <StarsIcon className={style.icon}/></div>
+              <div className={style.contentBtn}> 
+              <div className={style.contentBtnn}>
+              <StarsIcon className={style.icon}/>
+              </div>
+              </div>
+              <div className={style.contentImg}>
+                
+              <img src=  {movie.Poster} className={style.img}/>
+              </div>
+
               <div className={style.contentTitle}>
-                <Link to='/movie/' >
-                 <h4>
+
+                <Link to='/movie/' className={style.link}>
+
+                 <h4 className={style.title}>
                    {movie.Title}
                 </h4>
                 </Link>
@@ -68,7 +79,7 @@ export class Buscador extends Component {
           
             )
          }
-        
+        </div>
       </div>
     );
   }

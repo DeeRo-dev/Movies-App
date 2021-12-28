@@ -1,3 +1,4 @@
+
 .cnt {
     padding-top: 10px;
 }
@@ -16,6 +17,7 @@
 .contentSearch{
     height: 50px;
     margin: auto;
+    background:#fff;
     border-bottom: 1px solid #999;
     box-shadow:  5px 5px 5px #999;
 }
@@ -26,22 +28,44 @@
 }
 .label{
     font-size: 20px;
+    font-family: 'Dosis', sans-serif;
 }
 .contentCard{
+    background-image: url(https://i.pinimg.com/564x/e0/fa/02/e0fa02f210a055c72118cd10c7d2d2c8.jpg);
+    object-fit: cover;
+    object-position: center center;
     display: inline-block;
     font-size: 20px;
     width: 300px;
-    height: 140px;
+    height:400px;
     margin: 10px;
     padding: 0;
     border-radius: 15px;
     border: 1px solid #000;
     box-shadow:  5px 5px 5px #999;
 }
+.contentImg{
+    width:auto;
+    height: 260px;
+}
+.img{
+    width:300px;
+    height: 260px;
+    
+}
 .contentBtn{
     display: flex;
+   
     flex-direction: row-reverse;
     margin: 5px;
+}
+.contentBtnn{
+    border-radius: 3px;
+    background:#fff;
+    height: 28px;
+}
+.icon{
+    padding-top: 3px;
 }
 .icon:hover{
     cursor: pointer;
@@ -49,4 +73,21 @@
 
 .contentTitle{
     text-align: center;
+}
+.link{
+    text-decoration: none;
+    color: #000;
+}
+
+.contentCards{
+   padding-top: 40px;
+    text-align: center;
+    margin: auto;
+  
+}
+.title{
+    margin-top: 48px;
+    font-size: 20px;
+    color: #000;
+    font-family: 'Pacifico', cursive;
 }
