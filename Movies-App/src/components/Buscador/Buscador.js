@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-import { getMovies } from "../../actions";
+import { getMovies, addMovieFavorite } from "../../actions";
 import style from './Buscador.module.css';
 import StarsIcon from '@material-ui/icons/Stars';
 
@@ -25,6 +25,13 @@ export class Buscador extends Component {
     console.log(this.props)
     this.setState({title:''})
   }
+
+  // addFavorite = () =>{
+  //   this.props.addFavorite({
+  //     id: movie.imbID,
+  //     title: movie.Title
+  //   })
+  // }
 
   render() {
     const { title } = this.state;
@@ -55,7 +62,7 @@ export class Buscador extends Component {
             <div className={style.contentCard}>
               <div className={style.contentBtn}> 
               <div className={style.contentBtnn}>
-              <StarsIcon className={style.icon}/>
+              <StarsIcon className={style.icon} onClick={(e) => addFavorite(e)}/>
               </div>
               </div>
               <div className={style.contentImg}>
@@ -95,14 +102,15 @@ export class Buscador extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    //addMovieFavorite: movie => dispatch(addMovieFavorite(movie)),
+    addMovieFavorite: movie => dispatch(addMovieFavorite(movie)),
     getMovies: title => dispatch(getMovies(title))
   };
 }
 
     export default connect(
       mapStateToProps,
-      mapDispatchToProps
+      mapDispatchToProps,
+      // addMovieFavorite
     )(Buscador);
 
 /*function mapStateToProps(state) {

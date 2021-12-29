@@ -35,10 +35,10 @@ export function  getMovieDetail (id){
 
 //Agregar peliculas favoritas addMovieFavorite
 
-export function addMovieFavorite (payload){
+export function addMovieFavorite (movie){
   return{
     type: ADD_MOVIE_FAVORITE,
-    payload
+    payload: movie
   }
 }
 
