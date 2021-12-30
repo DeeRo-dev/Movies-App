@@ -16,7 +16,7 @@ function rootReducer (state = initialState, action){
     case ADD_MOVIE_FAVORITE: 
       return { 
         ...state,
-        moviesFavourites: [...state.moviesFavourites.action.payload]
+        moviesFavourites: [...state.moviesFavourites.concat(action.movie)]
       }
     case GET_MOVIES: 
       return {

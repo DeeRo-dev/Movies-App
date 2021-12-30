@@ -26,6 +26,7 @@ export function  getMovieDetail (id){
   return function(dispatch){
       return fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
     .then(response => response.json())
+    
     .then(json => dispatch({ type: GET_MOVIES_DATAIL, movie:json }))
     
   }

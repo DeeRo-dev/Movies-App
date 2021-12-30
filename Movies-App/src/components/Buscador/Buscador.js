@@ -57,14 +57,18 @@ export class Buscador extends Component {
         </form>
        <div className={style.contentCards}>
          {
-           this.props.movies && this.props.movies.map(movie => 
+           this.props.movies && this.props.movies.map(movie => movie &&
            
-            <div className={style.contentCard}>
+            <div className={style.contentCard} key={movie.imdbID}>
+              
               <div className={style.contentBtn}> 
               <div className={style.contentBtnn}>
-              <StarsIcon className={style.icon} onClick={(e) => addFavorite(e)}/>
+               
+              <StarsIcon className={style.icon}  onClick={() => this.props.addMovieFavorite({title: movie.Title, id: movie.imdbID})}/>
               </div>
               </div>
+              
+              <Link to={`/movie/${movie.imdbID}`} className={style.link}> 
               <div className={style.contentImg}>
                 
               <img src=  {movie.Poster} className={style.img}/>
@@ -72,15 +76,14 @@ export class Buscador extends Component {
 
               <div className={style.contentTitle}>
 
-                <Link to='/movie/' className={style.link}>
 
                  <h4 className={style.title}>
                    {movie.Title}
                 </h4>
-                </Link>
+              
                 
               </div>
-               
+                 </Link>
            
             </div>
           
@@ -102,8 +105,8 @@ export class Buscador extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addMovieFavorite: movie => dispatch(addMovieFavorite(movie)),
-    getMovies: title => dispatch(getMovies(title))
+    getMovies: title => dispatch(getMovies(title)), 
+    addMovieFavorite:( movie )=> dispatch(addMovieFavorite(movie))
   };
 }
 
